@@ -94,7 +94,7 @@ elif command -v dnf >/dev/null 2>&1 || command -v yum >/dev/null 2>&1; then
     # 核心修复：过滤yum输出的无关日志，只保留安全补丁行
     sec_info=$($PKG_MGR updateinfo list security 2>/dev/null | grep -E '^[0-9]+:' | grep -i security)
     # 计算安全补丁数量（纯数字）
-    sec_count=$(echo "$sec_info" | wc -l | tr -d ' ')
+	sec_count=$($PKG_MGR updateinfo list security 2>/dev/null | grep -E '^[0-9]+:' | grep -i security | wc -l 2>/dev/null | awk '{print $1}')
     # 容错：确保sec_count是数字
     if ! [[ "$sec_count" =~ ^[0-9]+$ ]]; then
         sec_count=0
@@ -134,6 +134,4 @@ fi
 # --- 5. 结束 ---
 print_title "巡检完成"
 echo -e "建议：定期清理 /var/log，关注磁盘使用率。\n"
-
-echo -e "出现[WARN] 发现 1 个安全补丁待安装！为不知名BUG，没搞懂"
 
