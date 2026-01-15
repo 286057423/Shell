@@ -135,3 +135,5 @@ fi
 print_title "巡检完成"
 echo -e "建议：定期清理 /var/log，关注磁盘使用率。\n"
 
+echo -e "出现[WARN] 发现 1 个安全补丁待安装！为不知名BUG，没搞懂"
+
