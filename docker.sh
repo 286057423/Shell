@@ -61,9 +61,7 @@ log "生成 Docker daemon 配置"
 cat > /etc/docker/daemon.json <<EOF
 {
   "registry-mirrors": [
-    "https://registry.docker-cn.com",
-    "https://mirror.ccs.tencentyun.com",
-    "https://docker.mirrors.ustc.edu.cn"
+	"https://docker.xuanyuan.me"
   ],
   "exec-opts": ["native.cgroupdriver=systemd"],
   "log-driver": "json-file",
