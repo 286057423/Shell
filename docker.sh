@@ -61,6 +61,7 @@ log "生成 Docker daemon 配置"
 cat > /etc/docker/daemon.json <<EOF
 {
   "registry-mirrors": [
+	# 配置加速源
 	"https://docker.xuanyuan.me"
   ],
   "exec-opts": ["native.cgroupdriver=systemd"],
